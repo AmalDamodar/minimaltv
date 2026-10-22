@@ -16,7 +16,7 @@ if [ -f "$STATE/disabled.log" ]; then
   : > "$STATE/disabled.log"
 fi
 
-"$ROOT/scripts/04-remote-keys.sh" --off >/dev/null 2>&1 || true
+bash "$ROOT/scripts/04-remote-keys.sh" --off >/dev/null 2>&1 || true
 
 if [ -f "$STATE/home_before.txt" ]; then
   home="$(cat "$STATE/home_before.txt")"

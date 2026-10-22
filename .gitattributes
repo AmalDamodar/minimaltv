@@ -1,0 +1,4 @@
+# Keep shell scripts with Unix line endings even when cloned on Windows, otherwise bash cannot run them.
+*.sh text eol=lf
+gradlew text eol=lf
+*.py text eol=lf

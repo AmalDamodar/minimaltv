@@ -53,8 +53,9 @@ Profiles for other brands are very welcome as pull requests.
 
 ## Quick start
 
-**New to this? Follow the [step-by-step install guide](docs/INSTALL.md)** (macOS, Linux, Windows via WSL, and a
-no-computer option for just the home screen). The short version:
+**New to this? Follow the [complete install guide](docs/INSTALL.md)**: it starts on the TV (internet, IP address,
+developer options, USB debugging), then covers Windows, Mac and Linux, connecting, every script with the output you should
+see, the remote buttons, undo, and a no-computer option for just the home screen. The short version:
 
 You need a computer with [`adb`](docs/ADB.md) and a TV on the same network with USB debugging on.
 

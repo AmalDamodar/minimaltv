@@ -6,7 +6,7 @@
 set -eu
 . "$(dirname "$0")/lib.sh"
 require_device
-[ -f "$STATE/home_before.txt" ] || "$ROOT/scripts/00-backup.sh"   # remember the original home app first
+[ -f "$STATE/home_before.txt" ] || bash "$ROOT/scripts/00-backup.sh"   # remember the original home app first
 
 apk="${1:-}"
 if [ -z "$apk" ]; then

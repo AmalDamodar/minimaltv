@@ -19,7 +19,7 @@ require_device() {
   command -v "$ADB" >/dev/null 2>&1 || die "adb not found. Install Android platform-tools, or set ADB=/path/to/adb (see docs/ADB.md)."
   local state
   state="$("$ADB" get-state 2>/dev/null || true)"
-  [ "$state" = "device" ] || die "no TV connected. Run: adb connect <tv-ip>:5555  (see docs/ADB.md)"
+  [ "$state" = "device" ] || die "no single TV connected. Run: adb connect <tv-ip>:5555 (see docs/INSTALL.md). If several devices are connected, set ANDROID_SERIAL=<tv-ip>:5555 first."
   mkdir -p "$STATE"
 }
 

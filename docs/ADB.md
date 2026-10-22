@@ -1,5 +1,8 @@
 # Connecting to the TV with adb
 
+> The full beginner walkthrough (TV settings, Windows, Mac, Linux, connecting) is in [INSTALL.md](INSTALL.md). This page is
+> the short reference.
+
 All scripts talk to the TV with `adb` (Android Debug Bridge) over Wi-Fi or Ethernet. Nothing is installed on the TV
 except the launcher, and nothing needs root.
 

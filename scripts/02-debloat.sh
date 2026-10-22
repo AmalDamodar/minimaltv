@@ -56,7 +56,7 @@ for t in "${tiers[@]}"; do
   fi
 done
 
-[ "$dry" = 0 ] && { [ -f "$STATE/home_before.txt" ] || "$ROOT/scripts/00-backup.sh"; }
+[ "$dry" = 0 ] && { [ -f "$STATE/home_before.txt" ] || bash "$ROOT/scripts/00-backup.sh"; }
 touch "$STATE/disabled.log" 2>/dev/null || true
 
 n_off=0; n_skip=0; n_missing=0

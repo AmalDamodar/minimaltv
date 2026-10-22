@@ -23,7 +23,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 require_device
-[ -f "$STATE/home_before.txt" ] || "$ROOT/scripts/00-backup.sh"
+[ -f "$STATE/home_before.txt" ] || bash "$ROOT/scripts/00-backup.sh"
 
 for k in window_animation_scale transition_animation_scale animator_duration_scale; do tv settings put global "$k" "$anim"; done
 echo "animation scales set to $anim"
