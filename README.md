@@ -51,19 +51,94 @@ home screen; that is untested here.
 `./scripts/scan.sh` to list your TV's own packages and follow [docs/PROFILES.md](docs/PROFILES.md) to write a profile.
 Profiles for other brands are very welcome as pull requests.
 
+## Before you install (about 10 minutes)
+
+Do this once. It gets the TV and your computer ready. (More detail, other computers and fixes: the
+[complete install guide](docs/INSTALL.md).)
+
+### Part 1: on the TV (use the remote)
+
+| # | Do this | You should see |
+| --- | --- | --- |
+| 1 | Connect the TV to the **same Wi-Fi or router as your computer**: **Settings** (gear icon, top right of the home screen), **Network & Internet**, pick your Wi-Fi, type the password. Or plug in an Ethernet cable | "Connected" |
+| 2 | **Settings**, **Network & Internet**, press OK on your network. **Write down the IP address** (like `192.168.1.50`). If you do not see it: **Settings, Device Preferences, About, Status** | four numbers with dots |
+| 3 | **Settings**, **Device Preferences**, **About**. (Google TV: **Settings, System, About**) | the About list |
+| 4 | Scroll to **Build** (it may be called **Build number**, **OS build** or **Android TV OS build**) and press **OK 7 times** | "You are now a developer!" |
+| 5 | Press **Back** once and open **Developer options** | the Developer options list |
+| 6 | Turn **USB debugging** to **ON** (if there is a switch called **Enable developer options**, make sure it is ON too). Turn on **Network debugging** or **Wireless debugging** as well if your TV has one | the switch shows ON |
+
+### Part 2: on your computer (copy and paste)
+
+Pick your computer. Replace `YOUR_TV_IP` with the address you wrote down.
+
+<details>
+<summary><b>Windows 10 / 11</b></summary>
+
+1. Open **PowerShell**: press the Windows key, type `PowerShell`, press Enter.
+2. Copy both lines, paste them (right-click in the window), press Enter. If Windows asks for permission, click **Yes**.
+   This installs **Git** (with Git Bash) and Google's **adb**:
+   ```powershell
+   winget install --id Git.Git -e --source winget
+   winget install --id Google.PlatformTools -e --source winget
+   ```
+   (If it says `winget` is not recognised, install **App Installer** from the Microsoft Store, or follow
+   [the manual steps](docs/INSTALL.md#5a-windows-10-or-11).)
+3. **Close PowerShell.** Press the Windows key, type `Git Bash`, press Enter. The scripts run in **Git Bash**, not in
+   PowerShell. Copy these lines, right-click in the Git Bash window to paste, press Enter:
+   ```sh
+   git clone https://github.com/AmalDamodar/minimaltv.git
+   cd minimaltv
+   adb version
+   adb connect YOUR_TV_IP:5555
+   ```
+4. Look at the TV: tick **Always allow from this computer** and choose **OK**. Then run:
+   ```sh
+   adb devices
+   ```
+   It must show your TV followed by the word **`device`**.
+
+I could not test the Windows steps on a Windows PC; they use the official winget packages.
+</details>
+
+<details>
+<summary><b>Mac</b></summary>
+
+1. Open **Terminal**: press Cmd + Space, type `Terminal`, press Enter.
+2. Install **Homebrew** (it installs the other tools). Paste this line, press Enter, type your Mac password if asked
+   (you will not see it as you type), and wait. When it ends it prints **"Next steps"**: run the lines it shows, then
+   close and reopen Terminal.
+   ```sh
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+3. Install git and adb, download the project and connect (paste all, press Enter):
+   ```sh
+   brew install git
+   brew install --cask android-platform-tools
+   git clone https://github.com/AmalDamodar/minimaltv.git
+   cd minimaltv
+   adb version
+   adb connect YOUR_TV_IP:5555
+   ```
+4. If macOS asks to allow Terminal to find devices on your local network, click **Allow**. Look at the TV: tick
+   **Always allow from this computer** and choose **OK**. Then run:
+   ```sh
+   adb devices
+   ```
+   It must show your TV followed by the word **`device`**.
+</details>
+
+Stuck? [Connection problems and what each message means](docs/INSTALL.md#if-the-connection-fails). Ready? Continue below.
+
 ## Quick start
 
 **New to this? Follow the [complete install guide](docs/INSTALL.md)**: it starts on the TV (internet, IP address,
 developer options, USB debugging), then covers Windows, Mac and Linux, connecting, every script with the output you should
 see, the remote buttons, undo, and a no-computer option for just the home screen. The short version:
 
-You need a computer with [`adb`](docs/ADB.md) and a TV on the same network with USB debugging on.
+You are in the `minimaltv` folder and `adb devices` shows your TV (the part above). Run these one at a time, in this
+order, and read what each prints. On Windows run them in **Git Bash**.
 
 ```sh
-git clone https://github.com/AmalDamodar/minimaltv.git
-cd minimaltv
-adb connect <tv-ip>:5555                 # see docs/ADB.md for how to turn this on
-
 ./scripts/00-backup.sh                   # saves package lists, settings and your current home app
 ./scripts/02-debloat.sh --dry-run        # shows what would be disabled, changes nothing
 ./scripts/02-debloat.sh                  # the safe lists: telemetry, feedback, content and ads

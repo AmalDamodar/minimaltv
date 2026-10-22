@@ -183,6 +183,18 @@ scripts, which **Git for Windows** includes (it is called **Git Bash**).
 > I wrote the Windows steps from how these tools work. I could not test them on a Windows PC. If a step differs on
 > yours, please open an issue so the guide can be fixed.
 
+**Quick way (copy and paste).** Open **PowerShell** (Windows key, type PowerShell, Enter) and paste these two lines. They
+install Git (with Git Bash) and Google's adb in one go; click **Yes** if Windows asks for permission, then close
+PowerShell, open Git Bash (first half of **Step 3** below) and **skip the `export ADB=...` lines**: the winget version of
+adb is found automatically, so just type `adb` wherever this guide says `"$ADB"`. Then go on to **Step 4**.
+
+```powershell
+winget install --id Git.Git -e --source winget
+winget install --id Google.PlatformTools -e --source winget
+```
+
+If `winget` is not recognised, or you prefer to do it by hand, use steps 1 to 3:
+
 **Step 1: install Git for Windows (includes Git Bash)**
 
 1. Go to **https://git-scm.com/download/win** and download the installer (it starts by itself, the file is called
@@ -259,7 +271,7 @@ it.
    your PATH), then close and reopen Terminal.
 4. Install adb:
    ```sh
-   brew install android-platform-tools
+   brew install --cask android-platform-tools
    ```
 5. Check:
    ```sh
