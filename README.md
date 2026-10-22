@@ -53,6 +53,9 @@ Profiles for other brands are very welcome as pull requests.
 
 ## Quick start
 
+**New to this? Follow the [step-by-step install guide](docs/INSTALL.md)** (macOS, Linux, Windows via WSL, and a
+no-computer option for just the home screen). The short version:
+
 You need a computer with [`adb`](docs/ADB.md) and a TV on the same network with USB debugging on.
 
 ```sh
@@ -88,7 +91,7 @@ background limits. MinimalTV stays installed until you run `adb uninstall com.mi
 | `packages/` | Package lists: `generic/` (any Android TV), one folder per brand (`xiaomi/`) and `background-limit.txt`. Every line has a comment saying what the package is. |
 | `launcher/` | MinimalTV's source (Java, AndroidX RecyclerView only). |
 | `tools/make_backgrounds.py` | Turns your own photos into the launcher's backgrounds. |
-| `docs/` | [ADB](docs/ADB.md), [debloat](docs/DEBLOAT.md), [brand profiles](docs/PROFILES.md), [the launcher](docs/LAUNCHER.md), [remote buttons](docs/REMOTE-KEYS.md), [performance](docs/PERFORMANCE.md), [troubleshooting](docs/TROUBLESHOOTING.md). |
+| `docs/` | [Install guide](docs/INSTALL.md), [ADB](docs/ADB.md), [debloat](docs/DEBLOAT.md), [brand profiles](docs/PROFILES.md), [the launcher](docs/LAUNCHER.md), [remote buttons](docs/REMOTE-KEYS.md), [performance](docs/PERFORMANCE.md), [troubleshooting](docs/TROUBLESHOOTING.md). |
 
 ## Credits and licence
 
