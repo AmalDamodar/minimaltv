@@ -8,6 +8,9 @@ ship with 1 to 2 GB of RAM to run it all. The result is a slow TV. This project 
 what you do not need (nothing is uninstalled, everything can be undone), and makes the remote's special buttons work
 again.
 
+**Set up your own TV, no helper needed.** Every step is written out in plain language, starting on the TV itself, so you can
+do this without Claude, ChatGPT or any other AI, and without knowing anything about Android first.
+
 <p align="center">
   <img src="screenshots/for-you.jpg" width="49%" alt="For You tab">
   <img src="screenshots/apps.jpg" width="49%" alt="Apps tab">
