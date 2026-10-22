@@ -1,0 +1,10 @@
+# Google's own home screens and recommendation rows. Disabling them makes MinimalTV the only home screen and stops
+# the recommendation rows from loading in the background. Brand profiles add the manufacturer's own home screen.
+#
+# scripts/02-debloat.sh refuses to touch this list until MinimalTV is installed AND is the default home app,
+# because otherwise the TV would have no home screen. scripts/restore.sh brings it all back.
+
+com.google.android.tvlauncher             # Google TV home screen
+com.google.android.leanbacklauncher       # Android TV home screen (older)
+com.google.android.leanbacklauncher.recommendations   # older recommendation rows
+com.google.android.tvrecommendations      # recommendation rows

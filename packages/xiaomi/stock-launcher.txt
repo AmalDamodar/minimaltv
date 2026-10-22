@@ -1,0 +1,3 @@
+# Xiaomi / Mi TV home screen. Same rule as generic/stock-launcher.txt: only after MinimalTV is the default home app.
+
+com.mitv.tvhome.atv                       # Xiaomi PatchWall home screen

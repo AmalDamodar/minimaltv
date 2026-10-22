@@ -1,0 +1,8 @@
+# Google and Android packages that exist on every Google-certified Android TV and that nothing else depends on:
+# feedback and bug-report uploaders, Play Movies, Play Games. Brand-independent.
+# Names verified on an Android 10 Mi TV; other TVs use the same packages. Packages a TV does not have are skipped.
+
+com.google.android.feedback               # "send feedback" collector
+com.google.android.tv.bugreportsender     # bug report uploader
+com.google.android.videos                 # Google Play Movies & TV (the old app)
+com.google.android.play.games             # Google Play Games

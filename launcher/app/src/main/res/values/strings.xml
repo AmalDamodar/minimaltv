@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key_service_desc">Sends the remote\'s PatchWall button to the home screen from any app. Reads no screen content.</string>
+</resources>

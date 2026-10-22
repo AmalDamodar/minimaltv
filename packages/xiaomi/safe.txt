@@ -1,0 +1,11 @@
+# Xiaomi / Mi TV telemetry, content and ads. Tested on a Xiaomi MiTV-MOOQ0 (Android 10, MediaTek).
+
+com.miui.tv.analytics                     # Xiaomi usage analytics
+com.xiaomi.statistic                      # Xiaomi statistics / telemetry
+com.mitv.tvhome.michannel                 # Xiaomi "Mi channels" content rows on the home screen
+com.xm.webcontent                         # Xiaomi web content / promoted content
+com.xiaomi.mitv.tvmanager                 # Xiaomi "cleaner" / manager that runs in the background
+com.mitv.dream                            # Xiaomi screensaver
+com.mitv.milinkservice                    # Mi Link background service
+com.xiaomi.floatingframe                  # floating overlay service
+com.mitv.gallery                          # Xiaomi gallery

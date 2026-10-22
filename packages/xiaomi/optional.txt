@@ -1,0 +1,6 @@
+# Xiaomi / Mi TV preinstalled apps that some people use. Not disabled unless you pass --optional.
+
+com.xiaomi.mimusic2                       # Mi Music
+com.mxtech.videoplayer.television         # MX Player
+com.tcl.browser                           # preinstalled web browser (a browser is gone from the TV if you disable this)
+com.mitv.tvlock                           # Xiaomi TV lock / parental lock

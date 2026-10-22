@@ -1,0 +1,5 @@
+# Xiaomi / Mi TV: first-time setup, demo mode, built-in Alexa. Run only after the TV has been set up.
+
+com.mediatek.wwtv.setupwizard             # MediaTek setup wizard (Mi TV)
+com.xiaomi.amazon.alexa                   # Alexa built-in (leave it if you use Alexa)
+fusion.android.tv.demo                    # retail demo mode

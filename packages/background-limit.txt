@@ -1,0 +1,14 @@
+# Streaming apps that are stopped from starting themselves, running services or waking at boot while you are not
+# using them (`cmd appops RUN_ANY_IN_BACKGROUND ignore`). They still work normally when you open them.
+# Only apps that are installed are touched. Netflix and YouTube are left out: a phone can start them by casting and
+# that was not tested with a background limit. Add the package name of any other streaming app you use. Do NOT add casting/AirPlay receivers, VPNs or anything
+# that has to keep running while you are in another app.
+
+com.sonyliv                               # SonyLIV
+in.startv.hotstar                         # JioHotstar / Disney+ Hotstar
+com.graymatrix.did                        # ZEE5
+com.jio.media.stb.ondemand                # JioCinema
+com.jio.media.jiotvplus                   # JioTV+
+com.apple.atve.androidtv.appletv          # Apple TV
+com.amazon.amazonvideo.livingroom         # Prime Video
+org.videolan.vlc                          # VLC

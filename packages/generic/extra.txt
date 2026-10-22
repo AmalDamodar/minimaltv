@@ -1,0 +1,20 @@
+# Setup wizards, demo mode, backups and rarely used Google/AOSP apps. Brand-independent.
+# Run only AFTER the TV has been set up (Wi-Fi, Google account): disabling a setup wizard before that can leave
+# a new TV unable to finish setup.
+
+com.google.android.tungsten.setupwraith   # Google TV setup wizard
+com.google.android.partnersetup           # partner setup
+com.google.android.onetimeinitializer     # one-time initializer
+com.android.dynsystem                     # dynamic system updates (DSU)
+com.android.printspooler                  # printing
+com.android.htmlviewer                    # local HTML viewer
+com.android.dreams.basic                  # basic screensaver
+com.google.android.backdrop               # Google ambient mode screensaver
+com.google.android.syncadapters.calendar  # calendar sync
+com.google.android.syncadapters.contacts  # contacts sync
+com.google.android.youtube.tvmusic        # YouTube Music for TV
+com.google.android.marvin.talkback        # TalkBack screen reader (do NOT disable if you need it)
+com.android.wallpaperbackup               # wallpaper backup helper
+com.android.sharedstoragebackup           # shared storage backup helper
+com.android.backupconfirm                 # backup confirmation dialog
+com.android.localtransport                # local backup transport
