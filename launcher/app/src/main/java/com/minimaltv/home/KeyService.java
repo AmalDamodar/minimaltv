@@ -22,6 +22,7 @@ import java.util.Map;
  */
 public class KeyService extends AccessibilityService {
     static final String EXTRA_OPEN_APPS = "open_apps";
+    static final String EXTRA_OPEN_INPUTS = "open_inputs";
     private static final long[] CLOSE_DELAYS_MS = {1500, 4000, 9000};   // let the new app come up first
 
     private final Handler main = new Handler(Looper.getMainLooper());
@@ -39,12 +40,17 @@ public class KeyService extends AccessibilityService {
             return true;
         }
         Keymap.Entry e = Keymap.find(this, ev.getKeyCode());
+        if (e == null && ev.getKeyCode() == KeyEvent.KEYCODE_TV_INPUT) {   // the remote's Input button: the stock home screen used to answer it, so MinimalTV does
+            if (ev.getAction() == KeyEvent.ACTION_DOWN && ev.getRepeatCount() == 0) startActivity(homeIntent().putExtra(EXTRA_OPEN_INPUTS, true));
+            return true;
+        }
         if (e == null) return false;
         if (ev.getAction() != KeyEvent.ACTION_DOWN || ev.getRepeatCount() > 0) return true;   // act once, on press, so there is no wait for the release
         switch (e.action) {
             case Keymap.HOME: performGlobalAction(GLOBAL_ACTION_HOME); break;
             case Keymap.APPS: startActivity(homeIntent().putExtra(EXTRA_OPEN_APPS, true)); break;
             case Keymap.INPUT: openInput(e.pkg); break;
+            case Keymap.INPUTS: startActivity(homeIntent().putExtra(EXTRA_OPEN_INPUTS, true)); break;
             default: openApp(e.pkg);
         }
         return true;

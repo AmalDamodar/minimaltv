@@ -12,8 +12,13 @@ each button does, on the TV.
 1. On the computer: `./scripts/04-remote-keys.sh` (turns the service on; `--off` turns it off).
 2. On the TV: MinimalTV, rail, bottom icon (About), **Remote buttons**, **Add a button**.
 3. Press the button on your remote. Its code appears; choose **Open the home screen**, **Open the Apps tab**,
-   **Open an app** (then pick the app) or **Switch to an input** (then pick HDMI 1, HDMI 2, AV or Live TV).
+   **Open an app** (then pick the app), **Switch to an input** (then pick HDMI 1, HDMI 2, AV or Live TV) or
+   **Open the Inputs list**.
 4. Repeat for other buttons. Select an entry in the list to remove it.
+
+The remote's own **Input** (Source) button works without any setup: MinimalTV opens its Inputs list when you press
+it, because the manufacturer's home screen that used to answer it is disabled. Assign it to something else if you
+prefer.
 
 If pressing a button does nothing on that screen, the TV keeps that button for itself (power, volume and some voice keys
 are handled before any app sees them) and it cannot be remapped. `./scripts/find-keycodes.sh` shows which codes reach

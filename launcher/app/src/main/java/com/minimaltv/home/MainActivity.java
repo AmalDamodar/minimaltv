@@ -117,6 +117,7 @@ public class MainActivity extends Activity {
         tab = Math.max(0, Math.min(TAB_COUNT - 1, prefs.getInt("tab", TAB_FOR_YOU)));
         buildUi();
         loadApps();
+        if (getIntent().getBooleanExtra(KeyService.EXTRA_OPEN_INPUTS, false)) getWindow().getDecorView().post(this::openInputs);
     }
 
     @Override protected void onStart() {
@@ -137,7 +138,9 @@ public class MainActivity extends Activity {
         super.onNewIntent(intent);
         // HOME pressed while already here: back to the first tab
         hideOverlay(false);
-        if (intent.getBooleanExtra(KeyService.EXTRA_OPEN_APPS, false)) {   // remote's app drawer button
+        if (intent.getBooleanExtra(KeyService.EXTRA_OPEN_INPUTS, false)) {   // remote's Input button
+            openInputs();
+        } else if (intent.getBooleanExtra(KeyService.EXTRA_OPEN_APPS, false)) {   // remote's app drawer button
             if (tab != TAB_APPS) setTab(TAB_APPS, true);
             else focusFirstTile();
         } else if (tab != TAB_FOR_YOU) setTab(TAB_FOR_YOU, true);
@@ -799,7 +802,7 @@ public class MainActivity extends Activity {
 
     // ---------------------------------------------------------------- remote buttons
 
-    private static final String[] ACTION_NAMES = {"the home screen", "the Apps tab"};
+    private static final String[] ACTION_NAMES = {"the home screen", "the Apps tab", "", "", "the Inputs list"};
 
     /** The name of a TV input for the button list; the raw id if that input no longer exists. */
     private String inputLabel(String id) {
@@ -869,8 +872,9 @@ public class MainActivity extends Activity {
         ops.add("Open the Apps tab");
         ops.add("Open an app\u2026");
         ops.add("Switch to an input (HDMI 1\u2026)");
+        ops.add("Open the Inputs list");
         openList("Button " + code + " (" + KeyEvent.keyCodeToString(code).replace("KEYCODE_", "") + ")", ops, i -> {
-            if (i == Keymap.HOME || i == Keymap.APPS) { Keymap.put(this, code, i, null); openRemoteButtons(); return; }
+            if (i == Keymap.HOME || i == Keymap.APPS || i == Keymap.INPUTS) { Keymap.put(this, code, i, null); openRemoteButtons(); return; }
             if (i == Keymap.INPUT) {
                 collectInputs();
                 if (inputItems.isEmpty()) { flash("No inputs found"); openRemoteButtons(); return; }

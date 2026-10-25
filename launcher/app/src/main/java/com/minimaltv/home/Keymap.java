@@ -14,8 +14,8 @@ import java.util.List;
 final class Keymap {
     private Keymap() {}
 
-    /** INPUT keeps the TV input id (HDMI 1, AV, Live TV) in the package column. */
-    static final int HOME = 0, APPS = 1, APP = 2, INPUT = 3;
+    /** INPUT keeps the TV input id (HDMI 1, AV, Live TV) in the package column; INPUTS opens the Inputs list. */
+    static final int HOME = 0, APPS = 1, APP = 2, INPUT = 3, INPUTS = 4;
 
     static final class Entry {
         final int code, action; final String pkg;
