@@ -39,5 +39,6 @@ detect_profile() {
   local b; b="$(device_brand)"
   case "$b" in
     *xiaomi*|*redmi*|*" mi"*|*"mi "*) echo xiaomi ;;
+    *skyworth*|*coocaa*) echo skyworth ;;
   esac
 }

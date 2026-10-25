@@ -1,0 +1,3 @@
+# Run only AFTER the TV has been set up (--extra).
+com.smartdevice.setupwraith              # Skyworth setup wizard
+com.Smartdevice.emanual                  # e-manual viewer

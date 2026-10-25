@@ -18,3 +18,4 @@ com.android.wallpaperbackup               # wallpaper backup helper
 com.android.sharedstoragebackup           # shared storage backup helper
 com.android.backupconfirm                 # backup confirmation dialog
 com.android.localtransport                # local backup transport
+com.google.android.apps.tv.dreamx         # Google TV ambient screensaver (and its smart-home panel); about 70 MB of RAM

@@ -8,3 +8,4 @@ com.google.android.tvlauncher             # Google TV home screen
 com.google.android.leanbacklauncher       # Android TV home screen (older)
 com.google.android.leanbacklauncher.recommendations   # older recommendation rows
 com.google.android.tvrecommendations      # recommendation rows
+com.google.android.apps.tv.launcherx      # Google TV home screen (Android 11 and newer Google TV; verified on a Skyworth)

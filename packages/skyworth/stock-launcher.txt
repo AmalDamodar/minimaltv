@@ -1,0 +1,4 @@
+# The maker's home screen helpers. Only after MinimalTV is installed and the default home (--stock-launcher).
+# Left alone on purpose: com.smartdevice.leanbacklauncher.customizer and com.mediatek.android.leanbacklauncher.partnercustomizer
+# (they are tiny and only customize the stock home), and everything that handles inputs, HDMI, the tuner, Bluetooth remote
+# pairing, sound (Dolby) and updates (com.mediatek.*, com.smartdevice.livetv, com.smartdevice.bleconnectservice, dtv_svc).

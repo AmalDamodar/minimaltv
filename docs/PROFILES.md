@@ -9,6 +9,8 @@ packages/
     safe.txt  extra.txt  stock-launcher.txt
   xiaomi/             used when the TV reports Xiaomi
     safe.txt  extra.txt  optional.txt  stock-launcher.txt
+  skyworth/           used when the TV reports Skyworth or Coocaa
+    safe.txt  extra.txt  optional.txt  stock-launcher.txt
   background-limit.txt
 ```
 

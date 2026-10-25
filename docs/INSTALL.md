@@ -461,6 +461,14 @@ Press **Home** on the remote. You should see the MinimalTV home screen (two tabs
   ```sh
   adb shell cmd package set-home-activity com.minimaltv.home/.MainActivity
   ```
+- **Google TV (Android 11 and newer)** ignores that command. There, Home keeps opening Google's home screen and the
+  script in step 7.6 refuses to run. Disable Google's home screens by hand, which makes MinimalTV the only home app
+  (you can undo it with `./scripts/restore.sh`):
+  ```sh
+  adb shell pm disable-user --user 0 com.google.android.apps.tv.launcherx
+  adb shell pm disable-user --user 0 com.google.android.tungsten.setupwraith
+  ```
+  Press Home: MinimalTV should open. If it does not, run `adb shell pm enable com.google.android.apps.tv.launcherx` at once.
 
 ### Step 7.6: switch off the TV's old home screens
 

@@ -1,0 +1,3 @@
+# Skyworth apps that some people use. Not disabled unless you pass --optional.
+com.tianci.localmedia                    # Local media browser for USB drives (a file manager or VLC replaces it)
+com.smartdevice.dtv.icast                # iCast: the maker's screen casting app (Chromecast built in keeps working)
