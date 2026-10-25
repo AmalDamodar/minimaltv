@@ -11,8 +11,8 @@ each button does, on the TV.
 
 1. On the computer: `./scripts/04-remote-keys.sh` (turns the service on; `--off` turns it off).
 2. On the TV: MinimalTV, rail, bottom icon (About), **Remote buttons**, **Add a button**.
-3. Press the button on your remote. Its code appears; choose **Open the home screen**, **Open the Apps tab** or
-   **Open an app** (then pick the app).
+3. Press the button on your remote. Its code appears; choose **Open the home screen**, **Open the Apps tab**,
+   **Open an app** (then pick the app) or **Switch to an input** (then pick HDMI 1, HDMI 2, AV or Live TV).
 4. Repeat for other buttons. Select an entry in the list to remove it.
 
 If pressing a button does nothing on that screen, the TV keeps that button for itself (power, volume and some voice keys

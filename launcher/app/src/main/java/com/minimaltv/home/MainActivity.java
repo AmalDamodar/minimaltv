@@ -70,8 +70,8 @@ public class MainActivity extends Activity {
     private static final class AddTile { }
 
     private static final class InputItem {
-        final String label; final Intent intent; final boolean live;
-        InputItem(String l, Intent i, boolean live) { label = l; intent = i; this.live = live; }
+        final String id, label; final Intent intent; final boolean live;
+        InputItem(String id, String l, Intent i, boolean live) { this.id = id; label = l; intent = i; this.live = live; }
     }
 
     private Ui ui;
@@ -692,11 +692,11 @@ public class MainActivity extends Activity {
             String label = String.valueOf(l);
             if (type != TvInputInfo.TYPE_HDMI && !label.toUpperCase(Locale.ROOT).startsWith("AV") && type != TvInputInfo.TYPE_COMPOSITE) continue;
             if (type == TvInputInfo.TYPE_COMPOSITE && !label.toUpperCase(Locale.ROOT).contains("AV")) label = "AV";
-            inputItems.add(new InputItem(label, new Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(info.getId()))
+            inputItems.add(new InputItem(info.getId(), label, new Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(info.getId()))
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), false));
         }
         if (tuner != null) {
-            inputItems.add(new InputItem("Live TV", new Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(tuner))
+            inputItems.add(new InputItem(tuner, "Live TV", new Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(tuner))
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), true));
         }
         Collections.sort(inputItems, (a, b) -> {
@@ -801,6 +801,13 @@ public class MainActivity extends Activity {
 
     private static final String[] ACTION_NAMES = {"the home screen", "the Apps tab"};
 
+    /** The name of a TV input for the button list; the raw id if that input no longer exists. */
+    private String inputLabel(String id) {
+        collectInputs();
+        for (InputItem i : inputItems) if (i.id.equals(id)) return "input " + i.label;
+        return "an input that is gone";
+    }
+
     private String labelOf(String pkg) {
         for (AppEntry e : apps) if (e.pkg.equals(pkg)) return e.label;
         return pkg;
@@ -817,7 +824,7 @@ public class MainActivity extends Activity {
         if (!keyServiceOn()) labels.add("Button support is off: run scripts/04-remote-keys.sh");
         int offset = labels.size();
         for (Keymap.Entry e : entries) {
-            labels.add("Button " + e.code + "   \u2192   " + (e.action == Keymap.APP ? labelOf(e.pkg) : ACTION_NAMES[e.action]));
+            labels.add("Button " + e.code + "   \u2192   " + (e.action == Keymap.APP ? labelOf(e.pkg) : e.action == Keymap.INPUT ? inputLabel(e.pkg) : ACTION_NAMES[e.action]));
         }
         labels.add("\uFF0B  Add a button");
         final int n = entries.size();
@@ -861,8 +868,17 @@ public class MainActivity extends Activity {
         ops.add("Open the home screen");
         ops.add("Open the Apps tab");
         ops.add("Open an app\u2026");
+        ops.add("Switch to an input (HDMI 1\u2026)");
         openList("Button " + code + " (" + KeyEvent.keyCodeToString(code).replace("KEYCODE_", "") + ")", ops, i -> {
             if (i == Keymap.HOME || i == Keymap.APPS) { Keymap.put(this, code, i, null); openRemoteButtons(); return; }
+            if (i == Keymap.INPUT) {
+                collectInputs();
+                if (inputItems.isEmpty()) { flash("No inputs found"); openRemoteButtons(); return; }
+                List<String> names = new ArrayList<>();
+                for (InputItem it : inputItems) names.add(it.label);
+                openList("Switch to this input with button " + code, names, j -> { Keymap.put(this, code, Keymap.INPUT, inputItems.get(j).id); openRemoteButtons(); });
+                return;
+            }
             List<String> labels = new ArrayList<>(), ids = new ArrayList<>();
             for (AppEntry e : apps) { labels.add(e.label); ids.add(e.pkg); }
             openChecklist("Open this app with button " + code, labels, ids, id -> false, id -> Keymap.put(this, code, Keymap.APP, id), true, this::openRemoteButtons);

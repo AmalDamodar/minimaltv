@@ -3,6 +3,7 @@ package com.minimaltv.home;
 import android.accessibilityservice.AccessibilityService;
 import android.app.ActivityManager;
 import android.content.Intent;
+import android.media.tv.TvContract;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.KeyEvent;
@@ -43,6 +44,7 @@ public class KeyService extends AccessibilityService {
         switch (e.action) {
             case Keymap.HOME: performGlobalAction(GLOBAL_ACTION_HOME); break;
             case Keymap.APPS: startActivity(homeIntent().putExtra(EXTRA_OPEN_APPS, true)); break;
+            case Keymap.INPUT: openInput(e.pkg); break;
             default: openApp(e.pkg);
         }
         return true;
@@ -70,6 +72,14 @@ public class KeyService extends AccessibilityService {
     private Intent homeIntent() {
         return new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME)
                 .setPackage(getPackageName()).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    }
+
+    /** Switches to a TV input (HDMI 1, AV, Live TV), the same way the Inputs list on the home screen does. */
+    private void openInput(String inputId) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, TvContract.buildChannelUriForPassthroughInput(inputId))
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        } catch (RuntimeException ignored) { }   // the input is gone (renamed or removed): do nothing
     }
 
     private void openApp(String pkg) {
