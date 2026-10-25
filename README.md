@@ -41,7 +41,7 @@ do this without Claude, ChatGPT or any other AI, and without knowing anything ab
 | Speed tweaks | Android 8.0 or newer | Android 10, Xiaomi |
 | Remote buttons | A remote whose extra buttons send key codes to Android (most do) | One Mi TV remote |
 | Debloat, generic lists | Any Google-certified Android TV: Google and Android packages only | Android 10, Xiaomi |
-| Debloat, brand profiles | Xiaomi / Mi TV and Skyworth are included. For other brands see [docs/PROFILES.md](docs/PROFILES.md) | Xiaomi (Android 10) and Skyworth (Google TV, Android 11) |
+| Debloat, brand profiles | Xiaomi / Mi TV and Skyworth (sold in India as AcerPure) are included. For other brands see [docs/PROFILES.md](docs/PROFILES.md) | Xiaomi (Android 10) and Skyworth (Google TV, Android 11) |
 
 **What is and is not tested.** Everything here was developed and checked on one TV (a Xiaomi MiTV-MOOQ0, Android 10,
 1 GB of RAM). The home screen is built to the Android 8+ API level and passes Android's compatibility lint, but I have

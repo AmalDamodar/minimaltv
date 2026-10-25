@@ -1,6 +1,6 @@
-# Skyworth / SW (Coocaa) TV packages that are content hubs, retail features or reporters. Nothing a normal TV needs.
+# Skyworth / SW (Coocaa) TV packages, also found on AcerPure TVs (Skyworth's TVs sold in India), that are content hubs, retail features or reporters. Nothing a normal TV needs.
 # Names read from a Skyworth SW-22AE NF (Google TV, Android 11, MediaTek). After disabling them the home screen, Settings,
-# YouTube and the AirPlay receiver were checked; HDMI inputs and the tuner were NOT tested.
+# YouTube, the AirPlay receiver and switching to HDMI 1 were checked; the tuner was NOT tested.
 com.smartdevice.dailyshortcut            # Daily Hub: art / ambient and content home, runs at boot, uses location
 com.smartdevice.dailymanage              # Daily Manage: content hub helper, draws over other apps
 com.smartdevice.recommendation           # Daily Play: content recommendations and splash

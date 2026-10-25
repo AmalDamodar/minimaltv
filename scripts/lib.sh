@@ -39,6 +39,6 @@ detect_profile() {
   local b; b="$(device_brand)"
   case "$b" in
     *xiaomi*|*redmi*|*" mi"*|*"mi "*) echo xiaomi ;;
-    *skyworth*|*coocaa*) echo skyworth ;;
+    *skyworth*|*coocaa*|*acerpure*|*acer" pure"*) echo skyworth ;;   # Skyworth also sells TVs as AcerPure in India
   esac
 }
