@@ -23,6 +23,8 @@ do this without Claude, ChatGPT or any other AI, and without knowing anything ab
 - **MinimalTV, a home screen** (`launcher/`). Two tabs: For You (your favourite apps) and Apps (everything installed).
   A frosted-glass look over a slowly drifting photo, search, inputs (HDMI, AV, tuner), light and dark mode. No network
   permission, no ads, no accounts.
+- **Files, a file manager for the remote** (`files/`, [docs/FILES.md](docs/FILES.md)). Browse internal storage and USB
+  drives, copy, move, rename and delete, all with the D-pad. A separate app, so it is optional.
 - **A debloat that can be undone** (`scripts/`, `packages/`). Disables telemetry, feedback uploaders, setup wizards,
   backup helpers, the stock home screens and, with a brand profile, the manufacturer's own bloat. Dry run first,
   automatic backup, one command to restore.
@@ -150,6 +152,7 @@ order, and read what each prints. On Windows run them in **Git Bash**.
 ./scripts/02-debloat.sh --extra          # optional: setup wizards, demo mode, backup helpers (once the TV is set up)
 ./scripts/03-tweaks.sh                   # animations 0.5x, background limits, trimmed caches
 ./scripts/04-remote-keys.sh              # turns on remote button support
+./scripts/05-install-files.sh            # optional: the Files app
 ```
 
 Then on the TV, pick the rail's bottom icon (About) and choose **Remote buttons** to assign your remote's buttons.

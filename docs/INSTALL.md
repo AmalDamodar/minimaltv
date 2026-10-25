@@ -499,6 +499,16 @@ them, and clears cached files. It prints one line for each thing it did. To use 
 
 You should see `key service on. On the TV: About > Remote buttons > Add a button.`
 
+### Step 7.9b (optional): install the Files app
+
+A small file manager made for the remote (details in [FILES.md](FILES.md)).
+
+```
+./scripts/05-install-files.sh
+```
+
+You should see `Success`. Open **Files** from the Apps tab.
+
 ### Step 7.10: restart the TV
 
 Unplug the TV from the wall for 10 seconds (or use Settings, Device Preferences, Restart), and plug it back in. When it

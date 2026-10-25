@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- any file the user opens is handed to the app that shows it -->
+    <root-path name="root" path="/" />
+</paths>
